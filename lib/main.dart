@@ -51,10 +51,11 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: ElevatedButton(
-        onPressed: null,
-        child: Text('Пример'),
+    return Center(
+      child: ElevatedButton.icon(
+        onPressed: () => {},
+        label: const Text('text'),
+        icon: Icon(Icons.book),
       ),
     );
   }
