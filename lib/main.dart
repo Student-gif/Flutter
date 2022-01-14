@@ -1,3 +1,5 @@
+// ignore_for_file: void_checks, avoid_print
+
 import "package:flutter/material.dart";
 
 void main() {
@@ -7,7 +9,7 @@ void main() {
           centerTitle: true,
           title: const Text('gamb'),
           backgroundColor: Colors.green[600]),
-      body: App(),
+      body: const App(),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -51,11 +53,38 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Align(
+      alignment: Alignment.bottomCenter,
       child: ElevatedButton.icon(
-        onPressed: () => {},
+        onPressed: () => {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SecondScreen()))
+        },
         label: const Text('text'),
-        icon: Icon(Icons.book),
+        icon: const Icon(Icons.book),
+      ),
+    );
+  }
+}
+
+int coolFunc(i, a) {
+  return a + i;
+}
+
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Second Screen")),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text("Go to First Screen"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
     );
   }
