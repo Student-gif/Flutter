@@ -5,11 +5,25 @@ import "package:flutter/material.dart";
 void main() {
   runApp(MaterialApp(
     home: Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => coolFunc(1, 5),
+        backgroundColor: const Color.fromARGB(0, 0, 0, 253),
+        foregroundColor: const Color.fromARGB(0, 202, 80, 123),
+      ),
       appBar: AppBar(
           centerTitle: true,
           title: const Text('gamb'),
           backgroundColor: Colors.green[600]),
       body: const App(),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(
+            icon: Icon(Icons.bluetooth),
+            label: 'label0',
+            backgroundColor: Color.fromARGB(255, 196, 196, 84)),
+        BottomNavigationBarItem(icon: Icon(Icons.bluetooth), label: 'label1'),
+        BottomNavigationBarItem(icon: Icon(Icons.bluetooth), label: 'label2'),
+        BottomNavigationBarItem(icon: Icon(Icons.bluetooth), label: 'label3'),
+      ]),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -78,14 +92,35 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Second Screen")),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text("Go to First Screen"),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      body: Container(
+          color: const Color.fromARGB(2, 223, 107, 107),
+          child: Column(
+            children: [
+              ElevatedButton(
+                child: const Text("Go to First Screen"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              const TextField(),
+              ElevatedButton(
+                child: const Text("send"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          )),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(
+            icon: Icon(Icons.bluetooth),
+            label: 'label0',
+            backgroundColor: Color.fromARGB(255, 196, 196, 84)),
+        BottomNavigationBarItem(icon: Icon(Icons.bluetooth), label: 'label1'),
+        BottomNavigationBarItem(icon: Icon(Icons.bluetooth), label: 'label2'),
+        BottomNavigationBarItem(icon: Icon(Icons.bluetooth), label: 'label3'),
+      ]),
     );
   }
 }
+
